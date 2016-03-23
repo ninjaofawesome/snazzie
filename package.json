@@ -1,0 +1,16 @@
+{
+  "name": "snazzie",
+  "version": "0.0.0",
+  "description": "A Static Site Generator With Gulp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "gulp",
+    "sass",
+    "gh-pages"
+  ],
+  "author": "hannah nordgren <hey@hereshannahs.info>",
+  "license": "ISC"
+}
