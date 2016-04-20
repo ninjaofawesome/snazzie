@@ -7,11 +7,4 @@
 
  'use strict';
 
-var tasks = require('gulpfile.js');
-var appDir = require('./app');
-var distDir = require('./dist');
-
-module.exports= function(){
-
-
-}
+var initialize = require('./lib/snazzie.js');
