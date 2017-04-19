@@ -1,4 +1,4 @@
-# Snazzie Website: A Simple Static Server
+# Snazzie Website: A Simple Static Site Generator
 
 * * *
 
