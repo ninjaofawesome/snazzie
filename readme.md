@@ -11,7 +11,9 @@ Snazzie is an easy to use static site generator that uses the powers of Gulp to 
 Getting started with Snazzie is easy to use in just a few simple steps.
 
 1. Clone or download this directory [update the remote](https://help.github.com/articles/changing-a-remote-s-url/)
-4. type `npm init`
+2. Create your own directory on github (You will need it for step 4).
+3. Change the name of your directory via the command line, like so  `mv snazzie [YOUR DIRECTORY NAME HERE]`
+4. type `npm init`.  When Snazzie initializes, enter in your directory name and use your repository location.  The rest is up to you for preferences.
 5. type in your information into the desired fields, replacing the default snazzie setup.
 
 That's it!
