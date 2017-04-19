@@ -43,7 +43,8 @@ No.  Feel free to use whatever you prefer.  You can also use CDN hosted librarie
 #### SCSS:
 In the scss subdirectory.  There's a manifest called styles.scss.  You can link to any subdirectories with partials there.  In the head of your document that you require these files, you will also want to add the following right above the closing head tag.
 
-#### CSS:  In the css subdirectory.  You can choose unminified files if you prefer, they will be compressed as your site is built.  Then include them to the commented area below.
+#### CSS:
+In the css subdirectory.  You can choose unminified files if you prefer, they will be compressed as your site is built.  Then include them to the commented area below.
 
 ```
 <!--build:css css/styles.min.css -->
