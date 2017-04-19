@@ -36,13 +36,18 @@ In the app directory.  If you like, you can modify the gulp task to watch a page
 
 ## Does Snazzie come with any pre-loaded CSS or JS libraries?
 
-No.  Feel free to use whatever you prefer.  You can also use CDN hosted libraries, such as [jQuery](https://developers.google.com/speed/libraries/#jquery) or [Bootstrap](http://getbootstrap.com/getting-started/).
+No.  Feel free to use whatever you prefer.  You can also use CDN hosted libraries, such as [jQuery](https://developers.google.com/speed/libraries/#jquery) or [Bootstrap](http://getbootstrap.com/getting-started/).  You should put them above the commented sections for self-hosted css or js files.
 
-## Where do I put my sass files?
+## Where do I put my SCSS or other CSS files?
+
+#### SCSS:
 In the scss subdirectory.  There's a manifest called styles.scss.  You can link to any subdirectories with partials there.  In the head of your document that you require these files, you will also want to add the following right above the closing head tag.
+
+#### CSS:  In the css subdirectory.  You can choose unminified files if you prefer, they will be compressed as your site is built.  Then include them to the commented area below.
 
 ```
 <!--build:css css/styles.min.css -->
+    <link rel="stylesheet" href="./css/my-file-name.css">
     <link rel="stylesheet" href="./css/styles.css">
 <!-- endbuild -->
 
