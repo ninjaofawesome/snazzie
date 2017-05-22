@@ -17,7 +17,7 @@ const browserSync = require('browser-sync').create();
 gulp.task('compile', () => {
   return gulp.src('app/*.html')
     .pipe(useref())
-    .pipe(gulpIf('*.js', uglify()))
+    .pipe(gulpIf('app/compiled_js/*.js', uglify()))
     // Minifies only if it's a CSS file
     .pipe(gulpIf('*.css', cssnano()))
     .pipe(gulp.dest('dist'))
@@ -60,7 +60,7 @@ gulp.task('es6', () => {
     .pipe(babel({
       ignore: 'gulpfile.babel.js'
     }))
-    .pipe(gulp.dest('dist/js'));
+    .pipe(gulp.dest('app/compiled_js'));
 });
 
 gulp.task('clean:dist', () => {
@@ -72,9 +72,10 @@ return cache.clearAll(callback)
 })
 
 
-gulp.task('watch', ['browserSync', 'sass'], () => {
+gulp.task('watch', ['browserSync', 'sass', 'es6'], () => {
   gulp.watch('app/scss/**/*.scss', ['sass']);
   gulp.watch('app/*.html', browserSync.reload);
+  gulp.watch('app/js/**/*.js', ['es6']);
   gulp.watch('app/js/**/*.js', browserSync.reload);
 });
 
