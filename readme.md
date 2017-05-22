@@ -54,13 +54,44 @@ In the css subdirectory.  You can choose unminified files if you prefer, they wi
 
 ```
 
+## Can I use CDN hosted CSS frameworks like Bootstrap or Font Awesome with Snazzie?
+
+You sure can.  Its up to you where you would like to put that, we suggest outside of the commented tags to be compiled on build, like this:
+
+```
+
+<link rel="stylesheet" href="https......." crossorigin="anonymous">
+
+<!--build:css css/styles.min.css -->
+    <link rel="stylesheet" href="./css/my-file-name.css">
+    <link rel="stylesheet" href="./css/styles.css">
+<!-- endbuild -->
+
+```
+
+## Does Snazzie support es6?
+
+Yes!  Please read on below, for notes about where to put and use your JS files.
+
 ## Where do I put any additional JS files?
 
-In the js subdirectory.  In the body of your document that you require these files, you will also want to add the following right above the closing body tag.
+In the js subdirectory.  There is a gulp task that will compile your javascript on the fly for you as well, so take particular note as to the file structure below.  Consider your working directory for javascript to be the `js` directory, whereas being able to see the fruits of your labor will be coming from the `compiled_js` directory.
+
+## How does Snazzie compile my JavaScript?
+
+Like the minified CSS, everything placed in the commented build statements will be compiled when the build command is run, as shown below.  Please note, the directory that should be compiled is coming from the `compiled_js` directory, not the `js` directory directly.
 
 ```
 <!--build:js js/main.min.js -->
-  <script src="./js/my-file-name.js"></script>
-  <script src="./js/my-other-file-name.js"></script>
+  <script src="./compiled_js/my-file-name.js"></script>
+  <script src="./compiled_js/my-other-file-name.js"></script>
 <!-- endbuild -->
 ```
+
+## Can I use jQuery with Snazzie?
+
+Sure!  We suggest using installing jQuery as an npm package and imported into the files where you need it, rather than using it as a Google Hosted Library.
+
+## Can I use other CDN hosted JS libraries with Snazzie?
+
+Yes!  Similar to the CSS section mentioned above, include whatever libraries you need outside of the build tags.
