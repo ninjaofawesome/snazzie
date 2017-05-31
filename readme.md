@@ -73,6 +73,8 @@ You sure can.  Its up to you where you would like to put that, we suggest outsid
 
 Yes!  Please read on below, for notes about where to put and use your JS files.
 
+However, there is a caveat with ES6 and Snazzie.  As Snazzie is a client side static site builder, importing js files tends to return errors with require.js.  This is a known bug, will be amended in the future.
+
 ## Where do I put any additional JS files?
 
 In the js subdirectory.  There is a gulp task that will compile your javascript on the fly for you as well, so take particular note as to the file structure below.  Consider your working directory for javascript to be the `js` directory, whereas being able to see the fruits of your labor will be coming from the `compiled_js` directory.
