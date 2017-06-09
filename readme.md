@@ -72,6 +72,10 @@ You sure can.  Its up to you where you would like to put that, we suggest outsid
 
 ```
 
+## Does Snazzie have autoprefixing?
+
+Yes!  On build, all the applicable vendor prefixes to your styles will be applied.
+
 ## Does Snazzie support es6?
 
 Yes!  Please read on below, for notes about where to put and use your JS files.
