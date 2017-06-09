@@ -10,6 +10,9 @@ var useref = require('gulp-useref');
 var uglify = require('gulp-uglify');
 var gulpIf = require('gulp-if');
 var cssnano = require('gulp-cssnano');
+var postcss      = require('gulp-postcss');
+var sourcemaps   = require('gulp-sourcemaps');
+var autoprefixer = require('autoprefixer');
 var imagemin = require('gulp-imagemin');
 var cache = require('gulp-cache');
 var del = require('del');
@@ -21,7 +24,9 @@ gulp.task('compile', function() {
   return gulp.src('app/*.html')
     .pipe(useref())
     .pipe(gulpIf('app/compiled_js/*.js', uglify()))
-    // Minifies only if it's a CSS file
+    .pipe(gulpIf('*.css', sourcemaps.init()))
+    .pipe(gulpIf('*.css', postcss([ autoprefixer() ])))
+    .pipe(gulpIf('*.css', sourcemaps.write('.')))
     .pipe(gulpIf('*.css', cssnano()))
     .pipe(gulp.dest('dist'))
 });

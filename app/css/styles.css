@@ -1,3 +1,4 @@
-.less-text {
-  color: purple;
+.sass-text {
+  color: #00f !important;
+  display: flex;
 }
