@@ -3,6 +3,8 @@
 var gulp = require('gulp');
 var babel = require('gulp-babel');
 var sass = require('gulp-sass');
+var stylus = require('gulp-stylus');
+var nib = require('nib');
 var useref = require('gulp-useref');
 var uglify = require('gulp-uglify');
 var gulpIf = require('gulp-if');
@@ -33,13 +35,21 @@ gulp.task('browserSync', function() {
 
 gulp.task('sass', function() {
   return gulp.src('app/scss/**/*.scss') // Gets all files ending with .scss in app/scss
-    .pipe(sass())
+    .pipe(stylus())
     .pipe(gulp.dest('app/css'))
     .pipe(browserSync.reload({
       stream: true
     }))
 });
 
+gulp.task('stylus', function() {
+  return gulp.src('app/stylus/**/*.styl')
+    .pipe(stylus({ use: nib(), 'include css': true }))
+    .pipe(gulp.dest('app/css'))
+    .pipe(browserSync.reload({
+      stream: true
+    }))
+});
 
 gulp.task('images', function() {
   return gulp.src('app/images/**/*.+(png|jpg|jpeg|gif|svg)')
@@ -70,14 +80,15 @@ return cache.clearAll(callback)
 })
 
 
-gulp.task('watch', ['browserSync', 'sass', 'es6'], function() {
+gulp.task('watch', ['browserSync', 'sass', 'stylus', 'es6'], function() {
+  gulp.watch('app/stylus/**/*.styl', ['stylus']);
   gulp.watch('app/scss/**/*.scss', ['sass']);
   gulp.watch('app/*.html', browserSync.reload);
   gulp.watch('app/js/**/*.js', ['es6']);
   gulp.watch('app/js/**/*.js', browserSync.reload);
 });
 
-gulp.task('build', function(function) {
+gulp.task('build', function(callback) {
   runSequence('clean:dist',
     ['compile', 'images', 'fonts', 'es6'],
     callback
