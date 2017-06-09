@@ -38,13 +38,18 @@ In the app directory.  If you like, you can modify the gulp task to watch a page
 
 No.  Feel free to use whatever you prefer.  You can also use CDN hosted libraries, such as [jQuery](https://developers.google.com/speed/libraries/#jquery) or [Bootstrap](http://getbootstrap.com/getting-started/).  You should put them above the commented sections for self-hosted css or js files.
 
-## Where do I put my SCSS or other CSS files?
+## Where do I put my precompiled SCSS or STYL files?
 
 #### SCSS:
-In the scss subdirectory.  There's a manifest called styles.scss.  You can link to any subdirectories with partials there.  In the head of your document that you require these files, you will also want to add the following right above the closing head tag.
+In the scss subdirectory.  There's a manifest called styles.scss.  You can link to any subdirectories with partials there.  In the head of your document that you require these files, you will also want to add the following right above the closing head tag, as shown in the example below.
+
+#### STYL:
+In the stylus subdirectory. There's a manifest called styles.styl.  You can link to any subdirectories with partials there.  In the head of your document that you require these files, you will also want to add the following right above the closing head tag, as shown in the example below.
+
+## Where could I put vanilla CSS files?
 
 #### CSS:
-In the css subdirectory.  You can choose unminified files if you prefer, they will be compressed as your site is built.  Then include them to the commented area below.
+In the css subdirectory.  You can choose unminified files if you prefer, they will be compressed as your site is built.  Please note that if you choose to use CSS files, name the file something else thatn styles.css if you are planning to use a preprocessor.  On build, these files will be compressed if they are included in the commented areas as shown below.
 
 ```
 <!--build:css css/styles.min.css -->
