@@ -5,6 +5,7 @@ var babel = require('gulp-babel');
 var sass = require('gulp-sass');
 var stylus = require('gulp-stylus');
 var nib = require('nib');
+var less = require('gulp-less');
 var useref = require('gulp-useref');
 var uglify = require('gulp-uglify');
 var gulpIf = require('gulp-if');
@@ -51,6 +52,15 @@ gulp.task('stylus', function() {
     }))
 });
 
+gulp.task('less', function() {
+  return gulp.src('app/less/**/*.less')
+    .pipe(less())
+    .pipe(gulp.dest('app/css'))
+    .pipe(browserSync.reload({
+      stream: true
+    }))
+});
+
 gulp.task('images', function() {
   return gulp.src('app/images/**/*.+(png|jpg|jpeg|gif|svg)')
   // Caching images that ran through imagemin
@@ -80,7 +90,7 @@ return cache.clearAll(callback)
 })
 
 
-gulp.task('watch', ['browserSync', 'sass', 'stylus', 'es6'], function() {
+gulp.task('watch', ['browserSync', 'sass', 'stylus', 'less', 'es6'], function() {
   gulp.watch('app/stylus/**/*.styl', ['stylus']);
   gulp.watch('app/scss/**/*.scss', ['sass']);
   gulp.watch('app/*.html', browserSync.reload);
