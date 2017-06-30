@@ -86,6 +86,12 @@ gulp.task('es6', function() {
     .pipe(gulp.dest('app/compiled_js'));
 });
 
+gulp.task('cname', function() {
+  gulp.src(['CNAME'])
+    .pipe(gulp.dest('./dist/'));
+  console.log('Running the gulpfile and the copy CNAME task');
+})
+
 gulp.task('clean:dist', function() {
   return del.sync('dist');
 })
@@ -105,7 +111,7 @@ gulp.task('watch', ['browserSync', 'sass', 'stylus', 'less', 'es6'], function() 
 
 gulp.task('build', function(callback) {
   runSequence('clean:dist',
-    ['compile', 'images', 'fonts', 'es6'],
+    ['compile', 'images', 'fonts', 'es6', 'cname'],
     callback
   )
 });
