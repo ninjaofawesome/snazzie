@@ -103,6 +103,7 @@ return cache.clearAll(callback)
 
 gulp.task('watch', ['browserSync', 'sass', 'stylus', 'less', 'es6'], function() {
   gulp.watch('app/stylus/**/*.styl', ['stylus']);
+  gulp.watch('app/less/**/*.less', ['less']);
   gulp.watch('app/scss/**/*.scss', ['sass']);
   gulp.watch('app/*.html', browserSync.reload);
   gulp.watch('app/js/**/*.js', ['es6']);
