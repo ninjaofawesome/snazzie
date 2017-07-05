@@ -1,6 +1,6 @@
 {
   "name": "snazzie",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A Static Site Generator With Gulp",
   "scripts": {
     "start": "gulp watch",
